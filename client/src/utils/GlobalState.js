@@ -6,7 +6,7 @@ const { Provider } = StoreContext;
 
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProductReducer({
-    products: [[
+    products: [
       {
         name: 'Tin of Cookies',
         description:
@@ -114,7 +114,7 @@ const StoreProvider = ({ value = [], ...props }) => {
         price: 9.99,
         quantity: 600
       }
-    ]],
+    ],
     cart: [],
     cartOpen: false,
     categories: [
