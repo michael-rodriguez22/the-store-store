@@ -9,7 +9,13 @@ const StoreProvider = ({ value = [], ...props }) => {
     products: [],
     cart: [],
     cartOpen: false,
-    categories: [],
+    categories: [
+      { name: 'Food' },
+      { name: 'Household Supplies' },
+      { name: 'Electronics' },
+      { name: 'Books' },
+      { name: 'Toys' }
+    ],
     currentCategory: ''
   });
   // use this to confirm it works!
