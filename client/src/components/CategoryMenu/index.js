@@ -5,11 +5,14 @@ import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
 } from "../../utils/actions";
-import { useStoreContext } from "../../utils/GlobalState";
+
+import store from "../../utils/GlobalState";
+import { useDispatch, useSelector } from "react-redux";
 import { idbPromise } from "../../utils/helpers";
 
 function CategoryMenu() {
-  const [state, dispatch] = useStoreContext();
+  const dispatch = useDispatch();
+  const state = store.getState();
   const { categories } = state;
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
@@ -17,7 +20,7 @@ function CategoryMenu() {
     if (categoryData) {
       dispatch({
         type: UPDATE_CATEGORIES,
-        categories: categoryData.categories,
+        payload: { categories: categoryData.categories },
       });
       categoryData.categories.forEach((category) => {
         idbPromise("categories", "put", category);
@@ -26,7 +29,7 @@ function CategoryMenu() {
       idbPromise("categories", "get").then((categories) => {
         dispatch({
           type: UPDATE_CATEGORIES,
-          categories: categories,
+          payload: { categories: categories },
         });
       });
     }
@@ -35,10 +38,11 @@ function CategoryMenu() {
   const handleClick = (id) => {
     dispatch({
       type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id,
+      payload: { currentCategory: id },
     });
   };
 
+  console.log(state);
   return (
     <div>
       <h2>Choose a Category:</h2>
