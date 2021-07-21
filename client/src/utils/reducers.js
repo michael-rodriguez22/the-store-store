@@ -50,7 +50,7 @@ export const reducer = (state = initialState, action) => {
       };
     case REMOVE_FROM_CART:
       let newState = state.cart.filter((product) => {
-        return product._id !== action._id;
+        return product._id !== action.payload._id;
       });
 
       return {

@@ -6,7 +6,7 @@ import {
   UPDATE_CURRENT_CATEGORY,
 } from "../../utils/actions";
 
-import store from "../../utils/GlobalState";
+import store from "../../utils/store";
 import { useDispatch } from "react-redux";
 import { idbPromise } from "../../utils/helpers";
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import CartItem from "../CartItem";
-import store from "../../utils/GlobalState";
+import store from "../../utils/store";
 import { useDispatch } from "react-redux";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import ProductItem from "../ProductItem";
 import { useDispatch } from "react-redux";
-import store from "../../utils/GlobalState";
+import store from "../../utils/store";
 import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";

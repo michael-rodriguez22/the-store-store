@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import store from "../utils/GlobalState";
+import store from "../utils/store";
 import { useDispatch } from "react-redux";
 import {
   REMOVE_FROM_CART,
