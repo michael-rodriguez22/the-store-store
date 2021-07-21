@@ -24,29 +24,29 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_PRODUCTS:
       return {
         ...state,
-        products: [...action.products],
+        products: [...action.payload.products],
       };
     // if action type value is the value of `UPDATE_CATEGORIES`, return a new state object with an updated categories array
     case UPDATE_CATEGORIES:
       return {
         ...state,
-        categories: [...action.categories],
+        categories: [...action.payload.categories],
       };
     case UPDATE_CURRENT_CATEGORY:
       return {
         ...state,
-        currentCategory: action.currentCategory,
+        currentCategory: action.payload.currentCategory,
       };
     case ADD_TO_CART:
       return {
         ...state,
         cartOpen: true,
-        cart: [...state.cart, action.product],
+        cart: [...state.cart, action.payload.product],
       };
     case ADD_MULTIPLE_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, ...action.products],
+        cart: [...state.cart, ...action.payload.products],
       };
     case REMOVE_FROM_CART:
       let newState = state.cart.filter((product) => {
@@ -64,7 +64,7 @@ export const reducer = (state = initialState, action) => {
         cartOpen: true,
         cart: state.cart.map((product) => {
           if (action._id === product._id) {
-            product.purchaseQuantity = action.purchaseQuantity;
+            product.purchaseQuantity = action.payload.purchaseQuantity;
           }
           return product;
         }),

@@ -7,7 +7,7 @@ import {
 } from "../../utils/actions";
 
 import store from "../../utils/GlobalState";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { idbPromise } from "../../utils/helpers";
 
 function CategoryMenu() {
@@ -42,7 +42,6 @@ function CategoryMenu() {
     });
   };
 
-  console.log(state);
   return (
     <div>
       <h2>Choose a Category:</h2>
